@@ -1,6 +1,17 @@
 # cinemapp
 
 A new Flutter project.
+Developed with Flutter & Dart
+Back-end as Firebase for authentication and monitoring payments and orders.
+Stripe for making payments.
+
+
+Features
+Ticket booking & track tickets
+Login and Register System
+Date and session selection
+Different seat occupancy for Different dates and different sessions
+Embedded movie shop for movie lovers to watch favourite movies at their comfort in their living rooms.
 
 ## Getting Started
 
