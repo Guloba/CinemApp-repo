@@ -25,7 +25,7 @@ class CartScreen extends StatefulWidget {
 
 class _CartScreenState extends State<CartScreen> {
   final String _txref = "My_unique_transaction_reference_123";
-  final String _amount = "10000";
+  final String _amount = "30000";
   final String _currency = FlutterwaveCurrency.UGX;
 
   @override
