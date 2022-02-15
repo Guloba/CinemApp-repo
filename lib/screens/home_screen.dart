@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
             IconButton(
               onPressed: () {},
               icon: const CircleAvatar(
-                backgroundColor: Colors.purple,
+                backgroundColor: Colors.white,
                 child: CircleAvatar(
                   radius: 14,
                   backgroundImage: NetworkImage(
