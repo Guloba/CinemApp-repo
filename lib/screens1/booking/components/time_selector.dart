@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:cinemapp/constants/constants.dart';
 
@@ -21,10 +20,10 @@ class _TimeSelectorState extends State<TimeSelector> {
       margin: EdgeInsets.symmetric(horizontal: 12),
       padding: EdgeInsets.symmetric(horizontal: appPadding * 0.75),
       decoration: BoxDecoration(
-          border: Border.all(
-        color: active ? primary : white,
-        width: 1,
-      ),
+        border: Border.all(
+          color: active ? primary : white,
+          width: 1,
+        ),
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: Column(
@@ -33,26 +32,23 @@ class _TimeSelectorState extends State<TimeSelector> {
         children: [
           RichText(
               text: TextSpan(
-                text: time,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                  color: active ? primary : white,
-                ),
-                children: <TextSpan>[
-                  TextSpan(
+                  text: time,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: active ? primary : white,
+                  ),
+                  children: <TextSpan>[
+                TextSpan(
                     text: ' PM',
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
                       color: active ? primary : white,
-                    )
-                  )
-                ]
-              )
-          ),
+                    ))
+              ])),
           Text(
-            "from \$$price",
+            "from UGX$price",
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w600,
@@ -84,7 +80,9 @@ class _TimeSelectorState extends State<TimeSelector> {
                     timeIntexSelected = index;
                   });
                 },
-                child: _timeItem(time[index][0].toString(), time[index][1] as int,
+                child: _timeItem(
+                    time[index][0].toString(),
+                    time[index][1] as int,
                     index == timeIntexSelected ? true : false),
               ),
             );

@@ -1,10 +1,13 @@
 import 'package:badges/badges.dart';
 import 'package:cinemapp/models%20&%20providers/wishlist.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cinemapp/models%20&%20providers/cart.dart';
 import 'package:cinemapp/models%20&%20providers/product.dart';
 import 'package:cinemapp/screens/cart/cart_screen.dart';
 import 'package:cinemapp/widgets/feeds_product.dart';
+import 'package:flutterwave/flutterwave.dart';
+import 'package:flutterwave/models/responses/charge_response.dart';
 import 'package:provider/provider.dart';
 
 import '../wishlist/wishlist_screen.dart';
@@ -122,7 +125,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                             ),
                             const SizedBox(height: 6),
                             Text(
-                              '\$ ${product.price}',
+                              'UGX ${product.price}',
                               style: TextStyle(
                                 fontSize: 21,
                                 color: Colors.purple,
@@ -298,6 +301,9 @@ class _contentRow extends StatelessWidget {
 }
 
 class _bottomSheet extends StatelessWidget {
+  final String _txref = "My_unique_transaction_reference_123";
+  final String _amount = "10000";
+  final String _currency = FlutterwaveCurrency.UGX;
   final String productId;
   final Product product;
   final CartProvider cartProvider;
@@ -349,7 +355,9 @@ class _bottomSheet extends StatelessWidget {
             height: 50,
             child: Center(
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  _beginPayment(context);
+                },
                 child: Text(
                   'BUY NOW',
                   style: TextStyle(fontSize: 18, color: Colors.black),
@@ -385,5 +393,54 @@ class _bottomSheet extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  void _beginPayment(BuildContext context) async {
+    Flutterwave flutterwave = Flutterwave.forUIPayment(
+      context: context,
+      encryptionKey: "FLWSECK_TEST30e7fa550811",
+      publicKey: "FLWPUBK_TEST-184128bc2930203ae678bb6396ccceb8-X",
+      currency: _currency,
+      amount: _amount,
+      email: FirebaseAuth.instance.currentUser!.email!,
+      fullName: FirebaseAuth.instance.currentUser!.displayName!,
+      txRef: _txref,
+      isDebugMode: true,
+      phoneNumber: "0776844757",
+      acceptCardPayment: true,
+      acceptUSSDPayment: true,
+      acceptUgandaPayment: true,
+    );
+
+    try {
+      final ChargeResponse? response =
+          await flutterwave.initializeForUiPayments();
+      if (response == null) {
+        // user didn't complete the transaction.
+      } else {
+        final isSuccessful = checkPaymentIsSuccessful(response);
+        if (isSuccessful) {
+          // provide value to customer
+        } else {
+          // check message
+          print(response.message);
+
+          // check status
+          print(response.status);
+
+          // check processor error
+          print(response.data!.processorResponse);
+        }
+      }
+    } catch (error, stacktrace) {
+      // handleError(error);
+    }
+  }
+
+  bool checkPaymentIsSuccessful(final ChargeResponse response) {
+    return response.data!.status == FlutterwaveConstants.SUCCESSFUL &&
+        response.data!.currency == _currency &&
+        response.data!.amount == _amount &&
+        response.data!.txRef == _txref;
   }
 }
