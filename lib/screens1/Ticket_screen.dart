@@ -76,7 +76,7 @@ class _TicketScreenState extends State<TicketScreen> {
                             ),
                             const SizedBox(height: 6),
                             Text(
-                              '\$ 20.00',
+                              '\$ 3.00',
                               style: TextStyle(
                                 fontSize: 21,
                                 color: Colors.purple,
