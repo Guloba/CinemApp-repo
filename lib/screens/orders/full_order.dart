@@ -91,7 +91,7 @@ class _FullOrderState extends State<FullOrder> {
                         ),
                         Flexible(
                           child: Text(
-                            '\$ ${order.price}',
+                            'UGX ${order.price}',
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(fontSize: 16),
                           ),
@@ -121,7 +121,7 @@ class _FullOrderState extends State<FullOrder> {
                     //     ),
                     //     Flexible(
                     //       child: Text(
-                    //         '\$',
+                    //         'UGX',
                     //         overflow: TextOverflow.ellipsis,
                     //         style: TextStyle(fontSize: 16),
                     //       ),
@@ -136,7 +136,7 @@ class _FullOrderState extends State<FullOrder> {
                     //     ),
                     //     Flexible(
                     //       child: Text(
-                    //         '\$450.00',
+                    //         'UGX450.00',
                     //         overflow: TextOverflow.ellipsis,
                     //         style: TextStyle(fontSize: 16),
                     //       ),

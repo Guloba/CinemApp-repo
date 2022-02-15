@@ -62,7 +62,7 @@ class PopularProducts extends StatelessWidget {
                           productAttrribute.price,
                         );
                       },
-                       icon: wp.wishlistList.containsKey(productAttrribute.id)
+                      icon: wp.wishlistList.containsKey(productAttrribute.id)
                           ? Icon(Icons.favorite, color: Colors.red)
                           : Icon(
                               Icons.favorite,
@@ -78,7 +78,7 @@ class PopularProducts extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: Text(
-                        '\$ ${productAttrribute.price}',
+                        'UGX ${productAttrribute.price}',
                         style: TextStyle(fontSize: 16),
                       ),
                     ),

@@ -43,7 +43,6 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
 
   File? _image;
 
-
   _showAlertDialog(BuildContext context, String title, String content) {
     showDialog(
         context: context,
@@ -109,7 +108,6 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
       });
     }
   }
-
 
   Future _getCameraImage() async {
     final image = await ImagePicker().pickImage(source: ImageSource.camera);
@@ -237,9 +235,9 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
                           },
                           keyboardType: TextInputType.number,
                           inputFormatters: [
-                             FilteringTextInputFormatter.digitsOnly,
+                            FilteringTextInputFormatter.digitsOnly,
                           ],
-                          decoration: InputDecoration(labelText: 'Price \$'),
+                          decoration: InputDecoration(labelText: 'Price UGX'),
                           onSaved: (val) {
                             _productPrice = val.toString();
                           },

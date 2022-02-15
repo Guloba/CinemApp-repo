@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutterwave/flutterwave.dart';
@@ -76,7 +77,7 @@ class _TicketScreenState extends State<TicketScreen> {
                             ),
                             const SizedBox(height: 6),
                             Text(
-                              '\$ 3.00',
+                              'UGX 3.00',
                               style: TextStyle(
                                 fontSize: 21,
                                 color: Colors.purple,
@@ -214,11 +215,11 @@ class _TicketScreenState extends State<TicketScreen> {
       publicKey: "FLWPUBK_TEST-184128bc2930203ae678bb6396ccceb8-X",
       currency: _currency,
       amount: _amount,
-      email: "judevercetti@email.com",
-      fullName: "Jude vercetti",
+      email: FirebaseAuth.instance.currentUser!.email!,
+      fullName: FirebaseAuth.instance.currentUser!.displayName!,
       txRef: _txref,
       isDebugMode: true,
-      phoneNumber: "0778955346",
+      phoneNumber: "0776844757",
       acceptCardPayment: true,
       acceptUSSDPayment: true,
       acceptUgandaPayment: true,

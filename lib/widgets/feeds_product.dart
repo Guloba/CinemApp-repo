@@ -56,7 +56,7 @@ class _FeedsProductState extends State<FeedsProduct> {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    '\$ ${productAttribute.price}',
+                    'UGX ${productAttribute.price}',
                     maxLines: 1,
                     style: const TextStyle(
                       fontSize: 16,

@@ -7,7 +7,7 @@ class PayButton extends StatefulWidget {
 
   const PayButton({Key? key}) : super(key: key);
 
-   @override
+  @override
   _PayButtonState createState() => _PayButtonState();
 }
 
@@ -55,9 +55,8 @@ class _PayButtonState extends State<PayButton> {
                       width: 15.0,
                       margin: EdgeInsets.only(right: 8.0),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        color: white
-                      ),
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: white),
                     ),
                     Text(
                       "Resvered",
@@ -77,8 +76,7 @@ class _PayButtonState extends State<PayButton> {
                       margin: EdgeInsets.only(right: 8.0),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
-                          color: primary
-                      ),
+                          color: primary),
                     ),
                     Text(
                       "Selected",
@@ -101,7 +99,7 @@ class _PayButtonState extends State<PayButton> {
                 width: size.width * 0.45,
                 child: Center(
                   child: Text(
-                    '\$20.00',
+                    'UGX20.00',
                     style: TextStyle(
                       color: white,
                       fontWeight: FontWeight.bold,
@@ -112,12 +110,12 @@ class _PayButtonState extends State<PayButton> {
               ),
               FlatButton(
                 color: secondary,
-                onPressed: (){
-                          Navigator.of(context).pushNamed(TicketScreen.routeName);
-                        },
+                onPressed: () {
+                  Navigator.of(context).pushNamed(TicketScreen.routeName);
+                },
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0))
-                ),
+                    borderRadius:
+                        BorderRadius.only(topLeft: Radius.circular(30.0))),
                 child: Container(
                   width: size.width * 0.45,
                   height: size.width * 0.08,
