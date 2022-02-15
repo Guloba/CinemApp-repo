@@ -13,7 +13,7 @@ class TicketScreen extends StatefulWidget {
 
 class _TicketScreenState extends State<TicketScreen> {
   final String _txref = "My_unique_transaction_reference_123";
-  final String _amount = "2000";
+  final String _amount = "10000";
   final String _currency = FlutterwaveCurrency.UGX;
 
   @override
@@ -76,7 +76,7 @@ class _TicketScreenState extends State<TicketScreen> {
                             ),
                             const SizedBox(height: 6),
                             Text(
-                              '\$ 20.00',
+                              '\$ 3.00',
                               style: TextStyle(
                                 fontSize: 21,
                                 color: Colors.purple,
