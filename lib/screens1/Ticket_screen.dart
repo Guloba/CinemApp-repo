@@ -211,7 +211,7 @@ class _TicketScreenState extends State<TicketScreen> {
     Flutterwave flutterwave = Flutterwave.forUIPayment(
       context: context,
       encryptionKey: "7f673516377363fdc4799860",
-      publicKey: "FLWSECK-7f6735163773b8025e056e78f7668beb-X",
+      publicKey: "FLWPUBK_TEST-184128bc2930203ae678bb6396ccceb8-X",
       currency: _currency,
       amount: _amount,
       email: "judevercetti@email.com",
