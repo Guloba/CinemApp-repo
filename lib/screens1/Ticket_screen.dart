@@ -221,13 +221,7 @@ class _TicketScreenState extends State<TicketScreen> {
       phoneNumber: "0778955346",
       acceptCardPayment: true,
       acceptUSSDPayment: true,
-      // acceptAccountPayment: false,
-      //  acceptFrancophoneMobileMoney: false,
-      //  acceptGhanaPayment: false,
-      //  acceptMpesaPayment: false,
-      //  acceptRwandaMoneyPayment: true,
       acceptUgandaPayment: true,
-      // acceptZambiaPayment: false
     );
 
     try {
