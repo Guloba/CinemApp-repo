@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutterwave/flutterwave.dart';
@@ -13,7 +14,7 @@ class TicketScreen extends StatefulWidget {
 
 class _TicketScreenState extends State<TicketScreen> {
   final String _txref = "My_unique_transaction_reference_123";
-  final String _amount = "32000";
+  final String _amount = "10000";
   final String _currency = FlutterwaveCurrency.UGX;
 
   @override
@@ -76,7 +77,7 @@ class _TicketScreenState extends State<TicketScreen> {
                             ),
                             const SizedBox(height: 6),
                             Text(
-                              '\$ 9.00',
+                              'UGX 3.00',
                               style: TextStyle(
                                 fontSize: 21,
                                 color: Colors.purple,
@@ -99,7 +100,7 @@ class _TicketScreenState extends State<TicketScreen> {
                       Padding(
                         padding: const EdgeInsets.all(16),
                         child: Text(
-                          'FR, FEB 25',
+                          'FR, FEB 18',
                           style: TextStyle(
                             fontSize: 21,
                             fontWeight: FontWeight.w600,
@@ -214,20 +215,14 @@ class _TicketScreenState extends State<TicketScreen> {
       publicKey: "FLWPUBK_TEST-184128bc2930203ae678bb6396ccceb8-X",
       currency: _currency,
       amount: _amount,
-      email: "gulobamoses5@gmail.com",
-      fullName: "Guloba Moses",
+      email: FirebaseAuth.instance.currentUser!.email!,
+      fullName: FirebaseAuth.instance.currentUser!.displayName!,
       txRef: _txref,
       isDebugMode: true,
-      phoneNumber: "0781602347",
+      phoneNumber: "0776844757",
       acceptCardPayment: true,
       acceptUSSDPayment: true,
-      // acceptAccountPayment: false,
-      //  acceptFrancophoneMobileMoney: false,
-      //  acceptGhanaPayment: false,
-      //  acceptMpesaPayment: false,
-      //  acceptRwandaMoneyPayment: true,
       acceptUgandaPayment: true,
-      // acceptZambiaPayment: false
     );
 
     try {

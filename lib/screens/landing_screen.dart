@@ -128,13 +128,13 @@ class _LandingScreenState extends State<LandingScreen>
               Center(
                 child: Text(
                   'Welcome to',
-                  style: TextStyle(fontSize: 45, color: Colors.deepPurpleAccent),
+                  style: TextStyle(fontSize: 45, color: Colors.red),
                 ),
               ),
               Center(
                 child: Text(
                   'CinemApp',
-                  style: TextStyle(fontSize: 65, color: Colors.deepPurpleAccent),
+                  style: TextStyle(fontSize: 65, color: Colors.red),
                 ),
               ),
             ],
