@@ -133,7 +133,7 @@ class _FullCartState extends State<FullCart> {
                         ),
                         Flexible(
                           child: Text(
-                            'UGX450.00',
+                            'UGX5000.00',
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(fontSize: 16),
                           ),
