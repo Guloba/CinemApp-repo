@@ -101,7 +101,7 @@ class _PayButtonState extends State<PayButton> {
                 width: size.width * 0.45,
                 child: Center(
                   child: Text(
-                    '\$20.00',
+                    '\$9.00',
                     style: TextStyle(
                       color: white,
                       fontWeight: FontWeight.bold,

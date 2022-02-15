@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:cinemapp/screens/cart/cart_screen.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutterwave/flutterwave.dart';
+import 'package:flutterwave/models/responses/charge_response.dart';
 
-
-class TicketScreen extends StatelessWidget {
+class TicketScreen extends StatefulWidget {
+  const TicketScreen({Key? key}) : super(key: key);
   static const routeName = '/Ticket-screen';
 
-  const TicketScreen({Key? key}) : super(key: key);
+  @override
+  _TicketScreenState createState() => _TicketScreenState();
+}
+
+class _TicketScreenState extends State<TicketScreen> {
+  final String _txref = "My_unique_transaction_reference_123";
+  final String _amount = "32000";
+  final String _currency = FlutterwaveCurrency.UGX;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     bottomSheet: _bottomSheet(),
+      bottomSheet: _bottomSheet(),
       appBar: AppBar(
         title: Text('Ticket Details'),
       ),
@@ -67,7 +76,7 @@ class TicketScreen extends StatelessWidget {
                             ),
                             const SizedBox(height: 6),
                             Text(
-                              '\$ 20.00',
+                              '\$ 9.00',
                               style: TextStyle(
                                 fontSize: 21,
                                 color: Colors.purple,
@@ -173,6 +182,85 @@ class TicketScreen extends StatelessWidget {
       ),
     );
   }
+
+  _bottomSheet() => Row(
+        children: [
+          Expanded(
+            flex: 2,
+            child: Container(
+              color: Colors.pinkAccent,
+              height: 50,
+              child: Center(
+                child: TextButton(
+                  onPressed: () {
+                    Fluttertoast.showToast(msg: "ahhhhh");
+                    _beginPayment();
+                  },
+                  child: Text(
+                    'BUY NOW',
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      );
+
+  void _beginPayment() async {
+    Flutterwave flutterwave = Flutterwave.forUIPayment(
+      context: context,
+      encryptionKey: "FLWSECK_TEST30e7fa550811",
+      publicKey: "FLWPUBK_TEST-184128bc2930203ae678bb6396ccceb8-X",
+      currency: _currency,
+      amount: _amount,
+      email: "natukundapamella0142@gmail.com",
+      fullName: "Pamela Natukunda",
+      txRef: _txref,
+      isDebugMode: true,
+      phoneNumber: "0776844757",
+      acceptCardPayment: true,
+      acceptUSSDPayment: true,
+      // acceptAccountPayment: false,
+      //  acceptFrancophoneMobileMoney: false,
+      //  acceptGhanaPayment: false,
+      //  acceptMpesaPayment: false,
+      //  acceptRwandaMoneyPayment: true,
+      acceptUgandaPayment: true,
+      // acceptZambiaPayment: false
+    );
+
+    try {
+      final ChargeResponse? response =
+          await flutterwave.initializeForUiPayments();
+      if (response == null) {
+        // user didn't complete the transaction.
+      } else {
+        final isSuccessful = checkPaymentIsSuccessful(response);
+        if (isSuccessful) {
+          // provide value to customer
+        } else {
+          // check message
+          print(response.message);
+
+          // check status
+          print(response.status);
+
+          // check processor error
+          print(response.data!.processorResponse);
+        }
+      }
+    } catch (error, stacktrace) {
+      // handleError(error);
+    }
+  }
+
+  bool checkPaymentIsSuccessful(final ChargeResponse response) {
+    return response.data!.status == FlutterwaveConstants.SUCCESSFUL &&
+        response.data!.currency == _currency &&
+        response.data!.amount == _amount &&
+        response.data!.txRef == _txref;
+  }
 }
 
 class _contentRow extends StatelessWidget {
@@ -205,36 +293,6 @@ class _contentRow extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class _bottomSheet extends StatelessWidget {
-  const _bottomSheet({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          flex: 2,
-          child: Container(
-             color: Colors.pinkAccent,
-            height: 50,
-            child: Center(
-              child: TextButton(
-                onPressed: () {},
-                child: Text(
-                  'BUY NOW',
-                  style: TextStyle(fontSize: 18, color: Colors.white),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ],
     );
   }
 }
