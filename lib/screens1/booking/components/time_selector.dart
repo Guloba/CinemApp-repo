@@ -10,9 +10,9 @@ class _TimeSelectorState extends State<TimeSelector> {
   int timeIntexSelected = 1;
 
   var time = [
-    ["01.30", 5],
-    ["06.30", 10],
-    ["10.30", 15]
+    ["01.30", 5000],
+    ["06.30", 10000],
+    ["10.30", 15000]
   ];
 
   Widget _timeItem(String time, int price, bool active) {

@@ -99,7 +99,7 @@ class _PayButtonState extends State<PayButton> {
                 width: size.width * 0.45,
                 child: Center(
                   child: Text(
-                    'UGX20.00',
+                    'UGX30000',
                     style: TextStyle(
                       color: white,
                       fontWeight: FontWeight.bold,
