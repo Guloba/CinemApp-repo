@@ -4,12 +4,14 @@ A new Flutter project.
 Developed with Flutter & Dart
 Back-end as Firebase for authentication and monitoring payments and orders.
 Stripe for making payments.
+MTN MoMo API used for mobile money payments
 
 
 Features
 Ticket booking & track tickets
 Login and Register System
 Date and session selection
+Scan QR code to prove payment for movie
 Different seat occupancy for Different dates and different sessions
 Embedded movie shop for movie lovers to watch favourite movies at their comfort in their living rooms.
 
