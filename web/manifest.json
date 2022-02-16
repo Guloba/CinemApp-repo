@@ -1,6 +1,6 @@
 {
-    "name": "cinemapp",
-    "short_name": "cinemapp",
+    "name": "CinemApp",
+    "short_name": "CinemApp",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
