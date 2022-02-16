@@ -160,7 +160,7 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
                       Expanded(
                         child: _image == null
                             ? Container(
-                                height: 200,
+                                height: 300,
                                 width: 200,
                                 decoration: BoxDecoration(
                                   border:
