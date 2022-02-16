@@ -68,7 +68,7 @@ class _TicketScreenState extends State<TicketScreen> {
                             Container(
                               width: MediaQuery.of(context).size.width * 0.9,
                               child: Text(
-                                'Togoo',
+                                'Togo',
                                 style: TextStyle(
                                   fontSize: 28,
                                   fontWeight: FontWeight.w600,
