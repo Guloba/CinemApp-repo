@@ -4,7 +4,7 @@ A new Flutter project.
 Developed with Flutter & Dart
 Back-end as Firebase for authentication and monitoring payments and orders.
 Stripe for making payments.
-MTN MoMO API used for mobile money payments
+MTN MoMo API used for mobile money payments
 
 
 Features
