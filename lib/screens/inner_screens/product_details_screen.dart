@@ -118,7 +118,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                               child: Text(
                                 '${product.title}',
                                 style: TextStyle(
-                                  fontSize: 32,
+                                  fontSize: 28,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
