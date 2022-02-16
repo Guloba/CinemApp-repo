@@ -100,7 +100,7 @@ class _TicketScreenState extends State<TicketScreen> {
                       Padding(
                         padding: const EdgeInsets.all(16),
                         child: Text(
-                          'FR, FEB 18',
+                          'FRI, FEB 18',
                           style: TextStyle(
                             fontSize: 21,
                             fontWeight: FontWeight.w600,
